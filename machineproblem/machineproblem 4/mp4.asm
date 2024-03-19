@@ -6,23 +6,22 @@ section .text
 
     ; Function to print a character
     print_char:
-        mov eax, 4       ; System call number for write
-        mov ebx, 1       ; File descriptor (stdout)
-        mov ecx, esp     ; Pointer to the character on the stack
-        mov edx, 1       ; Number of bytes to write
-        int 0x80         ; Software interrupt to invoke system call
+        mov eax, 4       
+        mov ebx, 1       
+        mov ecx, esp     
+        mov edx, 1       
+        int 0x80         
         ret
 
     _start:
 
-        ; Read character from memory (replace with your character input method)
-        ; Assuming the character is in AL register after the input
 
-        ; Check if character is uppercase (between 'A' and 'Z')
+
+   
         cmp al, 'A'
-        jl not_uppercase  ; Jump if less than 'A' (not uppercase)
+        jl not_uppercase  
         cmp al, 'Z'
-        jg not_uppercase  ; Jump if greater than 'Z' (not uppercase)
+        jg not_uppercase 
 
         ; Convert to lowercase (add 32 to ASCII code)
         add al, 32
